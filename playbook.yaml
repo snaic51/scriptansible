@@ -20,8 +20,9 @@
       register: service_info
 
     - debug:
-        var: service_info.services[10].state
-
+        msg:
+          -  service_info.services[10].state
+          -  service_info.services[10].name  
 
 
     
