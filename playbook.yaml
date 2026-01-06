@@ -14,19 +14,8 @@
     - name: Check IPCONFIG
       ansible.windows.win_command: IPCONFIG
 
-      
-    - name: Get info for the Netlogon service
-      ansible.windows.win_service_info:
-        name: Netlogon
-      
-      # The register keyword stores the result in a variable for later use
 
-    - name: Get info for a service using its display name
-      ansible.windows.win_service_info:
-      name: Windows Remote Management (WS-Management)
 
-    - name: Find all services that start with 'win'
-      ansible.windows.win_service_info:
-      name: win*
+    
 
     
