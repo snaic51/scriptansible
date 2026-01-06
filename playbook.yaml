@@ -14,6 +14,14 @@
     - name: Check IPCONFIG
       ansible.windows.win_command: IPCONFIG
 
+    - name: Get info for a single service
+      ansible.windows.win_service_info:
+      name: WinRM
+      register: service_info
+
+    - debug:
+        var: service_info.state
+
 
 
     
