@@ -1,0 +1,13 @@
+---
+- name: Create Multiple Local Groups on Windows
+  hosts: windows # Your target Windows hosts group from inventory
+  gather_facts: no
+  tasks:
+    - name: Create each local group
+      ansible.windows.win_group:
+        name: "{{ item.name }}"
+        description: "{{ item.description }}"
+        state: present # Ensures the group is created (or left alone if it exists)
+      loop: "{{ local_groups_to_create }}"
+      loop_control:
+        label: "{{ item.name }}" # Makes output cleaner

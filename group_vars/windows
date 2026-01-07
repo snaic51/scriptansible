@@ -2,3 +2,12 @@ ansible_user: admin
 ansible_password: Pa$$w0rd
 ansible_connection: winrm
 ansible_winrm_server_cert_validation: ignore
+
+
+local_groups_to_create:
+          - name: "DevOps Admins"
+            description: "Local administrators for development servers"
+          - name: "App Developers"
+            description: "Users who develop specific applications"
+          - name: "Reporting Team"
+            description: "Users needing access to reporting tools"
