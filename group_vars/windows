@@ -33,3 +33,9 @@ windows_users:
     update_password: on_create
     password_expire: true
 
+  - name: newuser4
+    password: "AnotherSecurePwd!" # Encrypt this with Vault later
+    groups: "Reporting Team"
+    update_password: on_create
+    password_expire: true
+
