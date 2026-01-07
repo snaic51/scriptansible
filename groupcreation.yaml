@@ -24,13 +24,13 @@
         groups: "{{ item.groups }}"
         update_password: "{{ item.update_password }}"
         state: present
-        notify: Restart Machine
+        
         
       loop: "{{ windows_users }}"
       loop_control:
         label: "{{ item.name }}" # Makes output cleaner
       # Note: For production, use Vault to encrypt passwords in users_data.yml
-
+      notify: Restart Machine
   handlers:
     - name: Restart Machine
       ansible.windows.win_reboot:
