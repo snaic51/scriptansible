@@ -11,3 +11,25 @@ local_groups_to_create:
             description: "Users who develop specific applications"
           - name: "Reporting Team"
             description: "Users needing access to reporting tools"
+
+
+          
+windows_users:
+  - name: newuser1
+    password: "P@ssw0rd123!" # Encrypt this with Vault later
+    groups: "DevOps Admins"
+    update_password: on_create
+    password_expire: true # Force change on first login
+
+  - name: newuser2
+    password: "AnotherSecurePwd!" # Encrypt this with Vault later
+    groups: "App Developers"
+    update_password: on_create
+    password_expire: true
+
+  - name: newuser3
+    password: "AnotherSecurePwd!" # Encrypt this with Vault later
+    groups: "App Developers"
+    update_password: on_create
+    password_expire: true
+

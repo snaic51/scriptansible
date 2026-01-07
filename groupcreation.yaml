@@ -11,3 +11,22 @@
       loop: "{{ local_groups_to_create }}"
       loop_control:
         label: "{{ item.name }}" # Makes output cleaner
+
+
+- name: Create Multiple Windows Users
+  hosts: windows
+  gather_facts: false # Not needed for user management on Windows
+  
+  tasks:
+    - name: Ensure users are present with specified properties
+      ansible.windows.win_user:
+        name: "{{ item.name }}"
+        groups: "{{ item.groups }}"
+        update_password: "{{ item.update_password }}"
+        state: present
+        
+      loop: "{{ windows_users }}"
+      loop_control:
+        label: "{{ item.name }}" # Makes output cleaner
+      # Note: For production, use Vault to encrypt passwords in users_data.yml
+   
